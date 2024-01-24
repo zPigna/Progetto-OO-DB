@@ -50,8 +50,8 @@ public class Registrazione {
         goBackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
                 frameChiamante.setVisible(true);
+                frame.setVisible(false);
                 frame.dispose();
             }
         });

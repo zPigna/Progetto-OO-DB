@@ -177,4 +177,20 @@ public class ControllerUtente {
 
     }
 
+    public void visualizzaSquadre(ArrayList<String> listaNomi, ArrayList<String> listaNazionalita){
+        for(Squadra s: listaSquadre){
+            listaNomi.add(s.getNome());
+            listaNazionalita.add(s.getNazionalita());
+        }
+    }
+
+    public void visualizzaTrofeiSquadra(String nome, String nazionalita, ArrayList<String> listaNomiTrofeo, ArrayList<String> listaAnniTrofeo, ArrayList<String> listaMeritiTrofeo){
+        Squadra s = getSquadraFromPK(nome, nazionalita);
+        for(Trofeo t: s.getListaTrofei()){
+            listaNomiTrofeo.add(t.getNome());
+            listaAnniTrofeo.add(t.getAnno());
+            listaMeritiTrofeo.add(t.getMerito());
+        }
+    }
+
 }

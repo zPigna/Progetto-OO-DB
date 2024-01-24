@@ -36,6 +36,7 @@ public class Login {
     private String permessi;
     public ControllerAdmin controllerAdmin = new ControllerAdmin();
     public ControllerUtente controllerUtente = new ControllerUtente();
+    private HomeAdmin finestraHomeAdmin;
 
 
     public Login(){
@@ -119,8 +120,12 @@ public class Login {
             panelPassword.setVisible(true);
             panelRegErr.setVisible(true);
             if (loginAdmin(controllerAdmin, login, password)) {
-                Home finestraHome = new Home(frame, controllerAdmin);
-                finestraHome.frame.setVisible(true);
+                panelCaricamento.setVisible(false);
+                panelLogin.setVisible(true);
+                panelPassword.setVisible(true);
+                panelRegErr.setVisible(true);
+                HomeAdmin finestraHomeAdmin = new HomeAdmin(frame, controllerAdmin);
+                finestraHomeAdmin.frame.setVisible(true);
                 frame.setVisible(false);
             } else {
                 loginError();
@@ -131,8 +136,8 @@ public class Login {
                 panelLogin.setVisible(true);
                 panelPassword.setVisible(true);
                 panelRegErr.setVisible(true);
-                VisualizzaCarriere finestraVisualizzaCarriere = new VisualizzaCarriere(frame, controllerUtente);
-                finestraVisualizzaCarriere.frame.setVisible(true);
+                Home finestraHome = new Home(frame, controllerUtente);
+                finestraHome.frame.setVisible(true);
                 frame.setVisible(false);
             }
         }

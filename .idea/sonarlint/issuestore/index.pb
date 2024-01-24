@@ -25,10 +25,6 @@ A
 src/GUI/Home.java,7\6\76bf0a81eb2492c3a6db1f18489d89fb51cc9e03
 A
 src/GUI/Home.form,0\2\02cf5ce14d47df0bff68ef4188139dc501b9d601
-P
- src/GUI/VisualizzaGiocatori.java,9\8\986804420e73951088517355c8f36ec63dac0746
-P
- src/GUI/VisualizzaGiocatori.form,b\7\b786377135801fc3cfca8ba45af09ce36a6246ee
 ]
 -src/PostgresDAO/UtenteImplementazioneDao.java,1\6\1653d2430232b6d14e2946d7d4f9328f1b26500d
 F
@@ -197,3 +193,11 @@ w
 G.idea/sonarlint/issuestore/e/b/eb4191b498d5fac87f2953176507f8621ecadb72,0\8\0884e548f5f38cc845a622fa0281bba36cb393fe
 Å
 Q.idea/sonarlint/securityhotspotstore/9/f/9fd825d23ef911970c69ba75225ddd537e0a2283,c\8\c80f7cec87be9810e34b80d4d6960b8e932a7c6f
+F
+src/GUI/HomeAdmin.java,6\c\6ceaa7a1a749cce71a86d7d0ae06c9869335a431
+F
+src/GUI/HomeAdmin.form,7\d\7d5015183f0915f190f658972aa22b2cf9d93ff0
+N
+src/GUI/VisualizzaSquadre.java,5\f\5f2ad332788e636e9d4fe5ba73ddd7683157b4c9
+N
+src/GUI/VisualizzaSquadre.form,2\7\2753d4d42b2cdd200bdabaaad49d3e9513cf9937

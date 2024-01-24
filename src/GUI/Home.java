@@ -1,6 +1,5 @@
 package GUI;
 
-import Controller.ControllerAdmin;
 import Controller.ControllerUtente;
 
 import javax.swing.*;
@@ -12,15 +11,18 @@ public class Home {
 
     public static JFrame frame;
     private final JFrame frameChiamante;
-    public ControllerAdmin controller;
+    public ControllerUtente controller;
     private JPanel panel;
     private JPanel panelGiocatori;
     private JPanel panelSquadre;
     private JTextField textField1;
-    private JButton invioButton;
+    private JButton visualizzaGiocatoriButton;
+    private JButton buttonIndietro;
+    private JButton visualizzaSquadreButton;
+    private JButton visualizzaCampionatiButton;
 
 
-    public Home(JFrame frameChiamante, ControllerAdmin controller) {
+    public Home(JFrame frameChiamante, ControllerUtente controller) {
 
         frame = new JFrame("Campionado - The assist to your goal");
         frame.setContentPane(this.panel);
@@ -31,9 +33,28 @@ public class Home {
         this.frameChiamante = frameChiamante;
         this.controller = controller;
 
-        invioButton.addActionListener(new ActionListener() {
+        visualizzaGiocatoriButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                VisualizzaCarriere finestraVisualizzaCarriere = new VisualizzaCarriere(frame, controller);
+                finestraVisualizzaCarriere.frame.setVisible(true);
+                frame.setVisible(false);
+            }
+        });
+        buttonIndietro.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameChiamante.setVisible(true);
+                frame.setVisible(false);
+                frame.dispose();
+            }
+        });
+        visualizzaSquadreButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VisualizzaSquadre finestraVisualizzaSquadre = new VisualizzaSquadre(frame, controller);
+                finestraVisualizzaSquadre.frame.setVisible(true);
+                frame.setVisible(false);
             }
         });
     }

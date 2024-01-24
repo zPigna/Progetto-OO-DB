@@ -9,7 +9,7 @@ f
 java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8´¬ÌßÓ1
 R
 java:S1068"0Remove this unused "panelTabella" private field.(õ¤œËıÿÿÿÿ8»¬ÌßÓ1
-N
-java:S1068"1Remove this unused "titoliColonne" private field.(Ö­¡Œ8¼¬ÌßÓ1
+W
+java:S1068"5Remove this unused "scrollPaneTabella" private field.(š¶­–şÿÿÿÿ8ÃÙÎëÓ1
 P
 java:S1068".Remove this unused "scrollPane" private field.(õŸ›‚ÿÿÿÿÿ8¼¬ÌßÓ1

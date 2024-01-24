@@ -18,7 +18,7 @@ public class VisualizzaCarriere {
     private JPanel panelTabella;
     private JTable tableGiocatori;
     private JButton buttonIndietro;
-    private JScrollPane titoliColonne;
+    private JScrollPane scrollPaneTabella;
     private JScrollPane scrollPane;
 
 
