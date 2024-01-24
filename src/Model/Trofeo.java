@@ -2,10 +2,12 @@ package Model;
 
 public class Trofeo {
     protected String nome;
-    protected Date data;
-    public Trofeo(String nome, Date data){
+    protected String anno;
+    protected String merito;
+    public Trofeo(String nome, String anno, String merito){
         this.nome = nome;
-        this.data = data;
+        this.anno = anno;
+        this.merito = merito;
     }
 
     public String getNome() {
@@ -16,11 +18,19 @@ public class Trofeo {
         this.nome = nome;
     }
 
-    public Date getData() {
-        return data;
+    public String getAnno() {
+        return anno;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setAnno(String anno) {
+        this.anno = anno;
+    }
+
+    public String getMerito() {
+        return merito;
+    }
+
+    public void setMerito(String merito) {
+        this.merito = merito;
     }
 }

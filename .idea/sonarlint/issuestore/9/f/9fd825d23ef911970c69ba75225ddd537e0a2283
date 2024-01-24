@@ -1,0 +1,27 @@
+
+E
+java:S16042"(Make this anonymous inner class a lambda(½®‰ñ8¹æòÜÓ1
+D
+java:S1604:"(Make this anonymous inner class a lambda(ú¶ÊX8¹æòÜÓ1
+n
+java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8¹æòÜÓ1
+s
+java:S1104"VMake controller a static final constant or non-public and provide accessors if needed.(„šÏñ8¹æòÜÓ1
+q
+java:S1450 "TRemove the "login" field and declare it as a local variable in the relevant methods.(ÒûìÌ8ÌæòÜÓ1
+y
+java:S1450!"WRemove the "password" field and declare it as a local variable in the relevant methods.(œãë­úÿÿÿÿ8ÌæòÜÓ1
+f
+java:S3252-"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ÎæòÜÓ1
+=
+java:S2129V" Remove this "String" constructor(ú›Úã8ÕæòÜÓ1
+X
+java:S1068"6Remove this unused "labelRegistrazione" private field.(¥¤´Êüÿÿÿÿ8ØæòÜÓ1
+N
+java:S1068"1Remove this unused "labelLoginReg" private field.(¤ÚÍ·8ØæòÜÓ1
+S
+java:S1068"1Remove this unused "labelPasswReg" private field.(¶”–¨şÿÿÿÿ8ØæòÜÓ1
+L
+java:S1068"/Remove this unused "panelGoBack" private field.(Öƒ’‚8ØæòÜÓ1
+T
+java:S1068"2Remove this unused "frameChiamante" private field.(°ˆ‚àıÿÿÿÿ8ÙæòÜÓ1

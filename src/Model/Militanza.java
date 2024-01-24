@@ -1,25 +1,35 @@
 package Model;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class Militanza {
+    private Giocatore giocatore;
     private Squadra squadra;
     private String ruolo;
-    private Date dataInizio;
-    private Date dataFine;
+    private LocalDate dataInizio;
+    private LocalDate dataFine;
     private int goalSegnati;
     private int goalSubiti;
     private int partiteGiocate;
+    private int ammonizioni;
+    private int espulsioni;
 
-    public Militanza(Squadra squadra, String ruolo, Date  dataInizio, Date dataFine, int goalSegnati, int goalSubiti, int partiteGiocate){
+
+    public Militanza(Giocatore giocatore, Squadra squadra, String ruolo, LocalDate  dataInizio,
+                     LocalDate dataFine, int goalSegnati, int goalSubiti, int partiteGiocate, int ammonizioni, int espulsioni){
+        this.giocatore = giocatore;
+        giocatore.aggiungiMilitanza(this);
         this.squadra = squadra;
-        // Da gestire il settaggio del ruolo, anche nei metodi set/get (potresti utilizzare proprio quei metodi con dei try-catch). Per ora prendiamo per buono il ruolo che ci viene dato.
-        this.ruolo = ruolo;
+        setRuolo(ruolo);
         this.dataInizio = dataInizio;
         this.dataFine = dataFine;
         this.goalSegnati = goalSegnati;
-        if(this.ruolo == "Portiere"){ this.goalSubiti = goalSubiti; }
+        if(this.ruolo.equals("Portiere")){ this.goalSubiti = goalSubiti; }
         this.partiteGiocate = partiteGiocate;
+        this.ammonizioni = ammonizioni;
+        this.espulsioni = espulsioni;
     }
 
     public Squadra getSquadra() {
@@ -34,23 +44,53 @@ public class Militanza {
         return ruolo;
     }
 
-    public void setRuolo(String ruolo) {
-        this.ruolo = ruolo;
+    public boolean checkRuolo(String ruolo) {
+        return ruolo.equals("Portiere") || ruolo.equals("Difensore") || ruolo.equals("Centrocampista") || ruolo.equals("Attaccante");
     }
 
-    public Date getDataInizio() {
+    public void setRuolo(String ruolo){
+        if(checkRuolo(ruolo)) {
+            this.ruolo = ruolo;
+        }
+    }
+
+    public Giocatore getGiocatore() {
+        return giocatore;
+    }
+
+    public void setGiocatore(Giocatore giocatore) {
+        this.giocatore = giocatore;
+    }
+
+    public int getAmmonizioni() {
+        return ammonizioni;
+    }
+
+    public void setAmmonizioni(int ammonizioni) {
+        this.ammonizioni = ammonizioni;
+    }
+
+    public int getEspulsioni() {
+        return espulsioni;
+    }
+
+    public void setEspulsioni(int espulsioni) {
+        this.espulsioni = espulsioni;
+    }
+
+    public LocalDate getDataInizio() {
         return dataInizio;
     }
 
-    public void setDataInizio(Date dataInizio) {
+    public void setDataInizio(LocalDate dataInizio) {
         this.dataInizio = dataInizio;
     }
 
-    public Date getDataFine() {
+    public LocalDate getDataFine() {
         return dataFine;
     }
 
-    public void setDataFine(Date dataFine) {
+    public void setDataFine(LocalDate dataFine) {
         this.dataFine = dataFine;
     }
 

@@ -4,31 +4,22 @@ import java.util.ArrayList;
 
 public class Squadra {
     private String nome;
-    private String nazione;
-    private ArrayList<Giocatore> listaGiocatori;
+    private String nazionalita;
     private ArrayList<Trofeo> listaTrofei;
     private Campionato campionatoAppartenenza;
 
     public Squadra(String nome, String nazione, Campionato campionatoAppartenenza){
         this.nome = nome;
-        this.nazione = nazione;
+        this.nazionalita = nazione;
         this.campionatoAppartenenza = campionatoAppartenenza;
-
-        listaGiocatori = new ArrayList<>();
+        campionatoAppartenenza.aggiungiSquadra(this);
         listaTrofei = new ArrayList<>();
     }
 
-    public void aggiungiGiocatore(Giocatore g){
-        listaGiocatori.add(g);
-        g.setSquadraAppartenenza(this);
-    }
-    public void aggiungiTrofeo(TrofeoSquadra T){
-        listaTrofei.add(T);
+    public void aggiungiTrofeo(TrofeoSquadra t){
+        listaTrofei.add(t);
     }
 
-    public void eliminaGiocatore(Giocatore g){
-        this.listaGiocatori.remove(g);
-    }
 
     public String getNome() {
         return nome;
@@ -38,20 +29,12 @@ public class Squadra {
         this.nome = nome;
     }
 
-    public String getNazione() {
-        return nazione;
+    public String getNazionalita() {
+        return nazionalita;
     }
 
-    public void setNazione(String nazione) {
-        this.nazione = nazione;
-    }
-
-    public ArrayList<Giocatore> getListaGiocatori() {
-        return listaGiocatori;
-    }
-
-    public void setListaGiocatori(ArrayList<Giocatore> listaGiocatori) {
-        this.listaGiocatori = listaGiocatori;
+    public void setNazionalita(String nazionalita) {
+        this.nazionalita = nazionalita;
     }
 
     public ArrayList<Trofeo> getListaTrofei() {
