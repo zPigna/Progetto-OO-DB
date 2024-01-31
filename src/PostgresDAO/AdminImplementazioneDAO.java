@@ -21,18 +21,19 @@ public class AdminImplementazioneDAO extends UtenteImplementazioneDAO implements
     public boolean checkAdmin(){
         try{
             connection = ConnessioneDB.getInstance(login, password).connection;
-            PreparedStatement preparedStatement = connection.prepareCall("SELECT * getRuoloUtente()");//NON FUNZIONA QUESTA PROCEDURE
-            ResultSet rs = preparedStatement.executeQuery();
-            if(rs.getString(1).equals("Administrator")){
-                preparedStatement.close();
-                rs.close();
-                connection.close();
-                return true;
-            }else{
-                preparedStatement.close();
+            CallableStatement callableStatement = connection.prepareCall("SELECT * FROM progetto.getRuoloUtente()");
+            ResultSet rs = callableStatement.executeQuery();
+            rs.next();
+            if(rs.getString(1).equals("ruolo_select")){
+                callableStatement.close();
                 rs.close();
                 connection.close();
                 return false;
+            }else{
+                callableStatement.close();
+                rs.close();
+                connection.close();
+                return true;
             }
         }catch(SQLException e){
             e.printStackTrace();

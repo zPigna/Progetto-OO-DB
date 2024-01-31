@@ -26,7 +26,7 @@ public class Militanza {
         this.dataInizio = dataInizio;
         this.dataFine = dataFine;
         this.goalSegnati = goalSegnati;
-        if(this.ruolo.equals("Portiere")){ this.goalSubiti = goalSubiti; }
+        this.goalSubiti = goalSubiti;
         this.partiteGiocate = partiteGiocate;
         this.ammonizioni = ammonizioni;
         this.espulsioni = espulsioni;

@@ -16,8 +16,8 @@ public class UtenteImplementazioneDAO implements UtenteDAO {
 
 
     public UtenteImplementazioneDAO(String login, String password) {
-        this.login = login;
-        this.password = password;
+        this.login = "admin_db";
+        this.password = "admin";
     }
     
     @Override
@@ -58,7 +58,7 @@ public class UtenteImplementazioneDAO implements UtenteDAO {
                     ResultSet caratteristiche = getCaratteristiche.executeQuery();
 
                     while (caratteristiche.next()) {
-                        listaCaratteristiche.add(rs.getString(1));
+                        listaCaratteristiche.add(caratteristiche.getString(1));
                     }
                     listaListaCaratteristiche.add(listaCaratteristiche);
                     caratteristiche.close();

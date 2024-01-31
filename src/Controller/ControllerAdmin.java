@@ -18,22 +18,18 @@ public class ControllerAdmin {
     ArrayList<Militanza> listaMilitanze = new ArrayList<>();
 
     public boolean login(String login, String password) {
-        admin = new AdminImplementazioneDAO("pippo", "pippo");
-        if(admin.login()){
-            buildModelFromDB();
-            //return admin.checkAdmin();
-            return true;
-        }else{
+        admin = new AdminImplementazioneDAO(login, password);
+        if(admin.login()) {
+            if (admin.checkAdmin()) {
+                buildModelFromDB();
+                return true;
+            } else {
+                return false;
+            }
+        } else{
             return false;
         }
     }
-
-
-    public boolean signUp(String login, String password) {
-        System.out.println("Sto registrandomi con " + login + password);
-        return RegistrazioneImplementazioneDAO.signUp(login, password);
-    }
-
 
     public void buildModelFromDB(){
         buildGiocatoriFromDB();

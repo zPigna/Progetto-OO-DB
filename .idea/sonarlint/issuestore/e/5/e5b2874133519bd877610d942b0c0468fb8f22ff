@@ -1,8 +1,27 @@
 
-n	java:S117Š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÙõë8ŒÅÇìÓ1
+n	java:S117Œ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÙõë8ûŠáÕ1
 ]
-java:S2259½"?A "NullPointerException" could be thrown; "s" is nullable here.(‰¹…å8¾ÅÇìÓ1
-_	java:S107ª"=Method has 14 parameters, which is greater than 7 authorized.(ö¹¥ƒûÿÿÿÿ8ÀÅÇìÓ1
-W
-java:S1172":Remove these unused method parameters "login", "password".(ô‚÷¢8ÃÅÇìÓ1
-G	java:S106 "+Replace this use of System.out by a logger.(ˆ¿Ø…8ÄÅÇìÓ1
+java:S2259Û"?A "NullPointerException" could be thrown; "g" is nullable here.(­ı²ò8£‹áÕ1
+b
+java:S2259¿"?A "NullPointerException" could be thrown; "s" is nullable here.(°ş¥¤ıÿÿÿÿ8£‹áÕ1
+b
+java:S2259Ê"?A "NullPointerException" could be thrown; "g" is nullable here.(ËÆùºøÿÿÿÿ8£‹áÕ1
+b
+java:S2259Ñ"?A "NullPointerException" could be thrown; "g" is nullable here.(²“õÈúÿÿÿÿ8£‹áÕ1
+]
+java:S2259"?A "NullPointerException" could be thrown; "c" is nullable here.(èµì8£‹áÕ1
+b
+java:S2259ó"?A "NullPointerException" could be thrown; "g" is nullable here.(î›Û€øÿÿÿÿ8£‹áÕ1
+b
+java:S2259Ö"?A "NullPointerException" could be thrown; "g" is nullable here.(²±Æóùÿÿÿÿ8£‹áÕ1
+]
+java:S2259è"?A "NullPointerException" could be thrown; "g" is nullable here.(•¡ÈŸ8£‹áÕ1
+_	java:S107¬"=Method has 14 parameters, which is greater than 7 authorized.(ö¹¥ƒûÿÿÿÿ8¦‹áÕ1
+_	java:S107ï"=Method has 11 parameters, which is greater than 7 authorized.(á¤óéüÿÿÿÿ8¦‹áÕ1
+J
+java:S1128"(Remove this unused import 'javax.swing'.(Ìí¿Üüÿÿÿÿ8¼‹áÕ1
+b
+java:S1128"@Remove this unused import 'javax.swing.table.DefaultTableModel'.(è†åûÿÿÿÿ8¼‹áÕ1
+V
+java:S1128
+"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8¼‹áÕ1

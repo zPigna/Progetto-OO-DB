@@ -2,6 +2,9 @@ package GUI;
 
 import Controller.ControllerAdmin;
 import Controller.ControllerUtente;
+import GUI.AdminGUI.HomeAdmin;
+import GUI.UserGUI.Home;
+import GUI.UserGUI.Registrazione;
 
 import javax.swing.*;
 import java.awt.*;

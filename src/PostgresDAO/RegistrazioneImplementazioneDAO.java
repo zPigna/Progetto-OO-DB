@@ -12,7 +12,7 @@ public class RegistrazioneImplementazioneDAO {
 
     public static boolean signUp(String login, String password){
         try {
-            connection = ConnessioneDB.getInstance("registrazione", "registrazione").connection;
+            connection = ConnessioneDB.getInstance("registra_utente", "registra_utente").connection;
             //Si tratta di un utente specifico che ha il solo permesso di chiamare la funzione create user
             CallableStatement callableStatement = connection.prepareCall("call progetto.createuser(?, ?)");
             callableStatement.setString(1, login);

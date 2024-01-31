@@ -9,3 +9,5 @@ h	java:S112é"FDefine and throw a dedicated exception instead of using a gener
 W
 java:S11417"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8æÜ±àÓ1
 Z	java:S107ª"=Method has 11 parameters, which is greater than 7 authorized.(´Ãµ8Úİ±àÓ1
+\
+java:S1172":Remove these unused method parameters "login", "password".(ü¦òÑüÿÿÿÿ8¤Ë²Õ1

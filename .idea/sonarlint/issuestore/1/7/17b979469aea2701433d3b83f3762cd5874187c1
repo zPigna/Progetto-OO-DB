@@ -1,0 +1,27 @@
+
+E
+java:S1604$"(Make this anonymous inner class a lambda(…ş©¹8æíŸ‚Ö1
+J
+java:S1604,"(Make this anonymous inner class a lambda(Çèã¦øÿÿÿÿ8¿¹¨‚Ö1
+s
+java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(¹å‘şøÿÿÿÿ8æíŸ‚Ö1
+x
+java:S1104"VMake controller a static final constant or non-public and provide accessors if needed.(Ì£ñÚûÿÿÿÿ8æíŸ‚Ö1
+M
+java:S1444"+Make this "public static frame" field final(¹å‘şøÿÿÿÿ8æíŸ‚Ö1
+D
+java:S3010""Remove this assignment of "frame".(À°¨Àüÿÿÿÿ8õíŸ‚Ö1
+f
+java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8öíŸ‚Ö1
+T
+java:S1068"2Remove this unused "frameChiamante" private field.(°ˆ‚àıÿÿÿÿ8ñÎ£‚Ö1
+T
+java:S1068"2Remove this unused "panelGiocatori" private field.(Ïˆ¿ÿşÿÿÿÿ8úíŸ‚Ö1
+P
+java:S1068"3Remove this unused "panelCampionati" private field.(›Ñü€8úíŸ‚Ö1
+[
+java:S1068">Remove this unused "visualizzaCampionatiButton" private field.(ıÅó8úíŸ‚Ö1
+R
+java:S1068"0Remove this unused "panelSquadre" private field.(ÀµÒçüÿÿÿÿ8úíŸ‚Ö1
+W
+java:S1068";Remove this unused "visualizzaSquadreButton" private field.(Î¦ 8úíŸ‚Ö1

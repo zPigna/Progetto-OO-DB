@@ -50,5 +50,4 @@ public interface AdminDAO extends UtenteDAO {
     public void rimuoviSquadra(String nomeSquadra, String nazionalitaSquadra);
     public void rimuoviTrofeoSquadra(String nome, String anno);
     public void rimuoviTrofeoIndividuale(String nome, String anno);
-
 }

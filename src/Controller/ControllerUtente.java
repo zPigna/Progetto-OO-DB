@@ -4,7 +4,10 @@ import Model.*;
 import PostgresDAO.RegistrazioneImplementazioneDAO;
 import PostgresDAO.UtenteImplementazioneDAO;
 
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ControllerUtente {
@@ -18,7 +21,7 @@ public class ControllerUtente {
     ArrayList<Militanza> listaMilitanze = new ArrayList<>();
 
     public boolean login(String login, String password) {
-        user = new UtenteImplementazioneDAO("pippo", "pippo");
+        user = new UtenteImplementazioneDAO(login, password);
         if(user.login()){
             buildModelFromDB();
             return true;
@@ -29,7 +32,6 @@ public class ControllerUtente {
 
 
     public boolean signUp(String login, String password) {
-        System.out.println("Sto registrandomi con " + login + password);
         return RegistrazioneImplementazioneDAO.signUp(login, password);
     }
 
@@ -186,11 +188,95 @@ public class ControllerUtente {
 
     public void visualizzaTrofeiSquadra(String nome, String nazionalita, ArrayList<String> listaNomiTrofeo, ArrayList<String> listaAnniTrofeo, ArrayList<String> listaMeritiTrofeo){
         Squadra s = getSquadraFromPK(nome, nazionalita);
-        for(Trofeo t: s.getListaTrofei()){
+        ArrayList<Trofeo> lista = s.getListaTrofei();
+        for(Trofeo t: lista){
             listaNomiTrofeo.add(t.getNome());
             listaAnniTrofeo.add(t.getAnno());
             listaMeritiTrofeo.add(t.getMerito());
         }
+    }
+
+    public void visualizzaGiocatore(String codFisc, ArrayList<String> listaAttributi){
+        Giocatore g = getGiocatoreFromPK(codFisc);
+        listaAttributi.add(codFisc);
+        listaAttributi.add(g.getNome());
+        listaAttributi.add(g.getCognome());
+        listaAttributi.add(g.getPiede());
+    }
+
+    public LocalDate getDoBGiocatore(String codFisc){
+        Giocatore g = getGiocatoreFromPK(codFisc);
+        return g.getDataDiNascita();
+    }
+
+    public LocalDate getDoRGiocatore(String codFisc){
+        Giocatore g = getGiocatoreFromPK(codFisc);
+        return g.getDataRitiro();
+    }
+
+    public String getListaCaratteristicheGiocatore(String codFisc){
+        Giocatore g = getGiocatoreFromPK(codFisc);
+        ArrayList<String> listaCaratteristiche = g.getListaCaratteristiche();
+        String caratteristiche = "";
+        if(listaCaratteristiche != null && !listaCaratteristiche.isEmpty()) {
+            for(String x : listaCaratteristiche){
+                caratteristiche = caratteristiche.concat(x + ", ");
+            }
+            caratteristiche = caratteristiche.substring(0, caratteristiche.length() - 2);
+        }
+        return caratteristiche;
+    }
+
+    public void visualizzaTrofeiGiocatore(String codFisc, ArrayList<String> listaNomiTrofeo, ArrayList<String> listaAnniTrofeo, ArrayList<String> listaMeritiTrofeo){
+        Giocatore g = getGiocatoreFromPK(codFisc);
+        ArrayList<Trofeo> lista = g.getListaTrofei();
+        for(Trofeo t: lista){
+            listaNomiTrofeo.add(t.getNome());
+            listaAnniTrofeo.add(t.getAnno());
+            listaMeritiTrofeo.add(t.getMerito());
+        }
+    }
+    public void visualizzaMilitanzeGiocatore(String codFisc, ArrayList<String> listaNomiSquadra, ArrayList<String> listaNazionalitaSquadra, ArrayList<String> listaRuoli,
+                                             ArrayList<LocalDate> listaDateInizio, ArrayList<LocalDate> listaDateFine,ArrayList<Integer> listaGoalSegnati, ArrayList<Integer> listaGoalSubiti,
+                                             ArrayList<Integer> listaPartiteGiocate,ArrayList<Integer> listaAmmonizioni,ArrayList<Integer> listaEspulsioni){
+        Giocatore g = getGiocatoreFromPK(codFisc);
+        ArrayList<Militanza> lista = g.getListaMilitanze();
+        if(lista != null && !lista.isEmpty()){
+            for(Militanza m : lista){
+                listaNomiSquadra.add(m.getSquadra().getNome());
+                listaNazionalitaSquadra.add(m.getSquadra().getNazionalita());
+                listaRuoli.add(m.getRuolo());
+                listaDateInizio.add(m.getDataInizio());
+                listaDateFine.add(m.getDataFine());
+                listaGoalSegnati.add(m.getGoalSegnati());
+                listaGoalSubiti.add(m.getGoalSubiti());
+                listaPartiteGiocate.add(m.getPartiteGiocate());
+                listaAmmonizioni.add(m.getAmmonizioni());
+                listaEspulsioni.add(m.getEspulsioni());
+            }
+        }
+    }
+
+    public void visualizzaCampionati(ArrayList<String> listaNomi,ArrayList<String> listaAnni,ArrayList<Integer> listaId){
+        for(Campionato c : listaCampionati){
+            listaNomi.add(c.getNome());
+            listaAnni.add(c.getAnno());
+            listaId.add(c.getIdCampionato());
+        }
+    }
+
+    public void visualizzaSquadreCampionato(int idCampionatoSelezionato,ArrayList<String> listaNomiSquadra, ArrayList<String> listaNazionalitaSquadra){
+        Campionato c = getCampionatoFromID(idCampionatoSelezionato);
+        ArrayList<Squadra> lista = c.getListaSquadre();
+
+        if(lista !=null && !lista.isEmpty()){
+            for(Squadra s : lista){
+                listaNomiSquadra.add(s.getNome());
+                listaNazionalitaSquadra.add(s.getNazionalita());
+            }
+        }
+
+
     }
 
 }

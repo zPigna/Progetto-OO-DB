@@ -1,7 +1,5 @@
 
-n	java:S117‹"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÙõë8³ÄÚàÓ1
-_	java:S107«"=Method has 14 parameters, which is greater than 7 authorized.(ö¹¥ƒûÿÿÿÿ8ãÄÚàÓ1
-W
-java:S1172":Remove these unused method parameters "login", "password".(ô‚÷¢8çÄÚàÓ1
-X	java:S125"<This block of commented-out lines of code should be removed.(Îç¿ï8èÄÚàÓ1
-G	java:S106!"+Replace this use of System.out by a logger.(ˆ¿Ø…8éÄÚàÓ1
+n	java:S117‡"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÙõë8‡‘€²Õ1
+_	java:S107§"=Method has 14 parameters, which is greater than 7 authorized.(ö¹¥ƒûÿÿÿÿ8º‘€²Õ1
+j
+java:S1128"HRemove this unused import 'PostgresDAO.RegistrazioneImplementazioneDAO'.(¼ì˜ßúÿÿÿÿ8µ–‚²Õ1
