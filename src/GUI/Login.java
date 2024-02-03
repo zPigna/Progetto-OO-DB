@@ -23,14 +23,12 @@ public class Login {
     private JLabel passwordLabel;
     private JLabel loginLabel;
     private JButton button;
-    private JLabel errorMessage;
     private JLabel caricamento;
     private ImageIcon loading = new ImageIcon("loading.gif");
     private JButton buttonRegistrazione;
-    private JPanel panelRegErr;
+    private JPanel panelReg;
     private JPanel panelCaricamento;
     private JLabel labelCaricamento;
-    private JLabel errorMessage2;
     private JPanel panelPermessi;
     private JComboBox boxPermessi;
     private JLabel labelPermessi;
@@ -85,7 +83,7 @@ public class Login {
     public boolean loginAdmin(ControllerAdmin controller, String login, String password){
         panelLogin.setVisible(false);
         panelPassword.setVisible(false);
-        panelRegErr.setVisible(false);
+        panelReg.setVisible(false);
         panelCaricamento.setVisible(true);
         return controller.login(login, password);
     }
@@ -93,40 +91,34 @@ public class Login {
     public boolean loginUtente(ControllerUtente controller, String login, String password){
         panelLogin.setVisible(false);
         panelPassword.setVisible(false);
-        panelRegErr.setVisible(false);
+        panelReg.setVisible(false);
         panelCaricamento.setVisible(true);
         return controller.login(login, password);
     }
 
     public void guiLogin() {
-        errorMessage.setVisible(false);
-        errorMessage2.setVisible(false);
         login = new String(loginField.getText());
         password = new String(passwordField.getPassword());
         permessi = new String(boxPermessi.getSelectedItem().toString());
 
         if ((password.isEmpty() || password.isBlank()) && (login.isBlank() || login.isEmpty())) {
-            errorMessage.setText("I campi login e password non possono essere vuoti.");
-            errorMessage.setVisible(true);
+            JOptionPane.showMessageDialog(null, "I campi login e password non possono essere vuoti.");
         } else if (login.isBlank() || login.isEmpty()) {
-            errorMessage.setText("Il campo login non puo' essere vuoto.");
-            errorMessage.setVisible(true);
+            JOptionPane.showMessageDialog(null ,"Il campo login non puo' essere vuoto.");
         } else if (password.isEmpty() || password.isBlank()) {
-            errorMessage.setText("Il campo password non puo' essere vuoto.");
-            errorMessage.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Il campo password non puo' essere vuoto.");
         } else if (permessi.isEmpty() || permessi.isBlank()) {
-            errorMessage.setText("Il campo permessi non puo' essere vuoto.");
-            errorMessage.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Il campo permessi non puo' essere vuoto.");
         } else if (permessi.equals("Admin")) {
             panelCaricamento.setVisible(false);
             panelLogin.setVisible(true);
             panelPassword.setVisible(true);
-            panelRegErr.setVisible(true);
+            panelReg.setVisible(true);
             if (loginAdmin(controllerAdmin, login, password)) {
                 panelCaricamento.setVisible(false);
                 panelLogin.setVisible(true);
                 panelPassword.setVisible(true);
-                panelRegErr.setVisible(true);
+                panelReg.setVisible(true);
                 HomeAdmin finestraHomeAdmin = new HomeAdmin(frame, controllerAdmin);
                 finestraHomeAdmin.frame.setVisible(true);
                 frame.setVisible(false);
@@ -138,7 +130,7 @@ public class Login {
                 panelCaricamento.setVisible(false);
                 panelLogin.setVisible(true);
                 panelPassword.setVisible(true);
-                panelRegErr.setVisible(true);
+                panelReg.setVisible(true);
                 Home finestraHome = new Home(frame, controllerUtente);
                 finestraHome.frame.setVisible(true);
                 frame.setVisible(false);
@@ -150,11 +142,8 @@ public class Login {
         panelCaricamento.setVisible(false);
         panelLogin.setVisible(true);
         panelPassword.setVisible(true);
-        panelRegErr.setVisible(true);
-        errorMessage2.setText("Errore durante il login.");
-        errorMessage.setText("Assicurati di aver inserito correttamente login, password e permessi.");
-        errorMessage.setVisible(true);
-        errorMessage2.setVisible(true);
+        panelReg.setVisible(true);
+        JOptionPane.showMessageDialog(null, "Errore durante il login.\nAssicurati di aver inserito correttamente login, password e permessi.");
     }
 
     public static void main(String[] args){

@@ -35,6 +35,18 @@ public class Giocatore {
         this.listaTrofei = new ArrayList<>();
         this.listaMilitanze = new ArrayList<>();
     }
+
+    public Giocatore(String nome, String cognome, String codFisc, String piede, LocalDate dataDiNascita, LocalDate dataDiRitiro) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.codFisc = codFisc;
+        this.piede = piede;
+        this.setDataDiNascita(dataDiNascita);
+        this.setDataDiNascita(dataDiRitiro);
+        this.listaTrofei = new ArrayList<>();
+        this.listaMilitanze = new ArrayList<>();
+    }
+
     public void aggiungiMilitanza(Militanza m){
         this.listaMilitanze.add(m);
     }

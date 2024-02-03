@@ -164,20 +164,43 @@ public class ControllerAdmin {
         }
     }
 
-    public void visualizzaCarriere(ArrayList<String> listaCodFisc, ArrayList<String> listaNomi, ArrayList<String> listaCognomi,
-                                   ArrayList<LocalDate> listaDateNascita, ArrayList<Integer> listaEta, ArrayList<String> listaPiedi, ArrayList<String> listaNomiSquadra, ArrayList<String> listaRuoli,
-                                   ArrayList<String> listaCaratteristiche, ArrayList<Integer> listaPartiteGiocate, ArrayList<Integer> listaGolEffettuati, ArrayList<Integer> listaGolSubiti,
-                                   ArrayList<Integer> listaAmmonizioni, ArrayList<Integer> listaEspulsioni){
-
-        admin.getCarriereFromDB(listaCodFisc, listaNomi, listaCognomi, listaDateNascita, listaEta, listaPiedi, listaNomiSquadra, listaRuoli,
-                listaCaratteristiche, listaPartiteGiocate, listaGolEffettuati, listaGolSubiti, listaAmmonizioni, listaEspulsioni);
-
+    public void visualizzaGiocatori(
+            ArrayList<String> listaCodFisc, ArrayList<String> listaNomi, ArrayList<String> listaCognomi, ArrayList<String> listaPiedi,
+            ArrayList<String> listaCaratteristiche, ArrayList<LocalDate> listaDoB, ArrayList<LocalDate> listaDoR){
+        for(Giocatore g : listaGiocatori){
+            listaCodFisc.add(g.getCodFisc());
+            listaNomi.add(g.getNome());
+            listaCognomi.add(g.getCognome());
+            listaPiedi.add(g.getPiede());
+            ArrayList<String> listaCaratteristicheGiocatore = g.getListaCaratteristiche();
+            String caratteristiche = "";
+            if(listaCaratteristicheGiocatore != null && !listaCaratteristicheGiocatore.isEmpty()) {
+                for(String x : listaCaratteristicheGiocatore){
+                    caratteristiche = caratteristiche.concat(x + ", ");
+                }
+                caratteristiche = caratteristiche.substring(0, caratteristiche.length() - 2);
+            }
+            listaCaratteristiche.add(caratteristiche);
+            listaDoB.add(g.getDataDiNascita());
+            listaDoR.add(g.getDataRitiro());
+        }
     }
 
-    public void inserisciGiocatore(String nome, String cognome, String codFisc, String piede, LocalDate dataDiNascita){
-        admin.inserisciGiocatore(nome, cognome, codFisc, piede, dataDiNascita);
-        listaGiocatori.add(new Giocatore(nome, cognome, codFisc, piede, dataDiNascita));
+    public boolean inserisciGiocatore(String nome, String cognome, String codFisc, String piede, LocalDate dataDiNascita){
+        if(admin.inserisciGiocatore(nome, cognome, codFisc, piede, dataDiNascita)) {
+            listaGiocatori.add(new Giocatore(nome, cognome, codFisc, piede, dataDiNascita));
+            return true;
+        }else{
+            return false;
+        }
     }
 
-
+    public boolean rimuoviGiocatore(String codFisc){
+        if(admin.rimuoviGiocatore(codFisc)){
+            listaGiocatori.removeIf(giocatore -> giocatore.getCodFisc().equals(codFisc));
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

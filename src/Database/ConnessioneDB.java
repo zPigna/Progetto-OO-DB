@@ -18,8 +18,8 @@ public class ConnessioneDB {
 
     private ConnessioneDB(String login, String password) throws SQLException, LoginFailedException {
         try {
-            this.login = login;
-            this.password = password;
+            this.login = "admin_db";
+            this.password = "admin";
             Class.forName(driver);
             connection = DriverManager.getConnection(url, this.login, this.password);
         } catch (ClassNotFoundException ex) {

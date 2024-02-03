@@ -19,8 +19,6 @@ public class Registrazione {
     private JPanel panel;
     private JButton goBackButton;
     private JButton buttonRegistrati;
-    private JPanel panelError;
-    private JLabel errorMessage;
     private JPanel panelRegistrazione;
     private JPanel panelLogin;
     private JPanel panelPassword;
@@ -82,35 +80,27 @@ public class Registrazione {
     }
 
     public void guiRegistrazione(){
-        errorMessage.setVisible(false);
         login = new String(loginField.getText());
         password = new String(passwordField.getPassword());
         if ((password.isEmpty() || password.isBlank()) && (login.isBlank() || login.isEmpty())) {
-            errorMessage.setText("I campi login e password non possono essere vuoti.");
-            errorMessage.setVisible(true);
+            JOptionPane.showMessageDialog(null, "I campi login e password non possono essere vuoti.");
         } else if (login.isBlank() || login.isEmpty()) {
-            errorMessage.setText("Il campo login non puo' essere vuoto.");
-            errorMessage.setVisible(true);
+            JOptionPane.showMessageDialog(null ,"Il campo login non puo' essere vuoto.");
         } else if (password.isEmpty() || password.isBlank()) {
-            errorMessage.setText("Il campo password non puo' essere vuoto.");
-            errorMessage.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Il campo password non puo' essere vuoto.");
         } else{
             if(signUp(login, password)){
                 panelCaricamento.setVisible(false);
                 panelRegistrazione.setVisible(true);
                 panelLogin.setVisible(true);
                 panelPassword.setVisible(true);
-                panelError.setVisible(true);
-                errorMessage.setText("Registrazione completata, per accedere torna alla pagina di login.");
-                errorMessage.setVisible(true);
+                JOptionPane.showMessageDialog(null, "Registrazione completata, per accedere torna alla pagina di login.");
             }else{
                 panelCaricamento.setVisible(false);
                 panelRegistrazione.setVisible(true);
                 panelLogin.setVisible(true);
                 panelPassword.setVisible(true);
-                panelError.setVisible(true);
-                errorMessage.setText("La registrazione non e' andata a buon termine.");
-                errorMessage.setVisible(true);
+                JOptionPane.showMessageDialog(null, "Errore: la registrazione non e' andata a buon termine.");
             }
         }
     }
@@ -118,9 +108,7 @@ public class Registrazione {
     public boolean signUp(String login, String password){
         panelRegistrazione.setVisible(false);
         panelLogin.setVisible(false);
-        panelError.setVisible(false);
         panelCaricamento.setVisible(true);
-
         return controller.signUp(login, password);
     }
 }

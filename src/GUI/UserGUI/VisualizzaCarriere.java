@@ -27,7 +27,7 @@ public class VisualizzaCarriere {
         frame = new JFrame("Campionado - The assist to your goal");
         frame.setContentPane(this.panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1800,800);
+        frame.setSize(1400,800);
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setBackground(new Color(0x6FC276));
         this.frameChiamante = frameChiamante;

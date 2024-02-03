@@ -43,7 +43,7 @@ public class AdminImplementazioneDAO extends UtenteImplementazioneDAO implements
         }
     }
 
-    public void inserisciGiocatore(String nome, String cognome, String codFisc, String piede, LocalDate dataDiNascita) {
+    public boolean inserisciGiocatore(String nome, String cognome, String codFisc, String piede, LocalDate dataDiNascita) {
          try{
              connection = ConnessioneDB.getInstance(login, password).connection;
              CallableStatement callableStatement = connection.prepareCall("call progetto.inserisciGiocatore(?, ?, ?, ?, ?)");
@@ -55,11 +55,11 @@ public class AdminImplementazioneDAO extends UtenteImplementazioneDAO implements
              callableStatement.execute();
              callableStatement.close();
              connection.close();
-         }catch(SQLException e){
+         } catch (SQLException | LoginFailedException e) {
              e.printStackTrace();
-        } catch (LoginFailedException e) {
-             throw new RuntimeException(e);
+             return false;
          }
+        return true;
     }
 
     @Override
@@ -659,7 +659,7 @@ public class AdminImplementazioneDAO extends UtenteImplementazioneDAO implements
     }
 
 
-    public void rimuoviGiocatore(String codFisc){
+    public boolean rimuoviGiocatore(String codFisc){
         try{
             connection = ConnessioneDB.getInstance(login, password).connection;
             PreparedStatement removeStatement = connection.prepareStatement("DELETE FROM progetto.GIOCATORE WHERE CODFISC LIKE ?");
@@ -667,11 +667,11 @@ public class AdminImplementazioneDAO extends UtenteImplementazioneDAO implements
             removeStatement.executeUpdate();
             removeStatement.close();
             connection.close();
-        }catch(SQLException e){
+        }catch(SQLException | LoginFailedException e){
             e.printStackTrace();
-        } catch (LoginFailedException e) {
-            throw new RuntimeException(e);
+            return false;
         }
+        return true;
     }
 
     public void rimuoviCaratteristicaGiocatore(String codFisc, String caratteristica){

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public interface AdminDAO extends UtenteDAO {
-    public void inserisciGiocatore(String nome, String cognome, String codFisc, String piede, LocalDate dataDiNascita);
+    public boolean inserisciGiocatore(String nome, String cognome, String codFisc, String piede, LocalDate dataDiNascita);
     public void modificaNomeGiocatore(String codFisc, String nuovoNome);
     public void modificaCognomeGiocatore(String codFisc, String nuovoCognome);
     public void modificaCodiceFiscaleGiocatore(String codFisc, String nuovoCodFisc);
@@ -43,7 +43,7 @@ public interface AdminDAO extends UtenteDAO {
     public void modificaGolSubitiMilitanza(String codFisc, String nomeSquadra, String nazionalitaSquadra, LocalDate dataInizio, int nuoviGolSubiti);
     public void modificaAmmonizioniMilitanza(String codFisc, String nomeSquadra, String nazionalitaSquadra, LocalDate dataInizio, int nuoveAmmonizioni);
     public void modificaEspulsioniMilitanza(String codFisc, String nomeSquadra, String nazionalitaSquadra, LocalDate dataInizio, int nuoveEspulsioni);
-    public void rimuoviGiocatore(String codFisc);
+    public boolean rimuoviGiocatore(String codFisc);
     public void rimuoviCaratteristicaGiocatore(String codFisc, String caratteristica);
     public void rimuoviCaratteristica(String tipoCaratteristica);
     public void rimuoviMilitanza(String codFisc, String nomeSquadra, String nazionalitaSquadra, LocalDate dataInizio);
